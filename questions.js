@@ -85,7 +85,7 @@ const getData = () => {
     }, 2000);
 }
 
-const obj = {};
+//const obj = {};
 
 const inputs = [...formAnswers.elements]
     .filter(elem => elem.checked)
@@ -93,4 +93,6 @@ const inputs = [...formAnswers.elements]
 inputs.forEach((elem, index) => {
     obj[`${index}_${questions[numberQuestion].question}`] = elem.value;
 })
-finalAnswers.push(obj)
+//finalAnswers.push(obj)
+
+export default questions;
