@@ -1,5 +1,5 @@
-import questions from '../questions.js';
-console.log(questions[0]);
+//import questions from '../questions.js';
+//console.log(questions[0]);
 document.addEventListener('DOMContentLoaded',function(){
     'use strict';
 
@@ -12,16 +12,40 @@ document.addEventListener('DOMContentLoaded',function(){
     const prevButton = document.querySelector('#prev');
     const sendButton = document.querySelector('#send');
 
+    const firebaseConfig = {
+        apiKey: "AIzaSyBBzm7jYzHOKmQkpwbJ4JhPIsId29H9cpY",
+        authDomain: "testburger-5843a.firebaseapp.com",
+        databaseURL: "https://testburger-5843a-default-rtdb.firebaseio.com",
+        projectId: "testburger-5843a",
+        storageBucket: "testburger-5843a.appspot.com",
+        messagingSenderId: "709072170298",
+        appId: "1:709072170298:web:acc30773cc1b2c46d87403",
+        measurementId: "G-6HZV8JCH0T"
+      };
+    firebase.initializeApp(firebaseConfig);
+
+    const getData = () => {
+        formAnswers.textContent = 'LOAD'
+        nextButton.classList.add('d-none')
+         prevButton.classList.add('d-none')
+         
+         setTimeout(() => {
+            firebase.database().ref().child('questions').once('value')
+            .then(snap => playTest(snap.val()))
+         },1000)
+    }
+
     btnOpenModal.addEventListener('click',()=>{
+        getData();
         modalBlock.classList.add('d-block');
-        playTest();
+        
     });
 
     closeModal.addEventListener('click',()=>{
         modalBlock.classList.remove('d-block');
     });
 
-    const playTest = ()=>{
+    const playTest = (questions)=>{
         const finalAnswers = [];
         let numberQuestion = 0;
 
@@ -126,6 +150,11 @@ document.addEventListener('DOMContentLoaded',function(){
             checkAnswer();          
             numberQuestion++
             renderQuestions(numberQuestion);
+            firebase
+            .database()
+            .ref()
+            .child('contacts')
+            .push(finalAnswers)
         };
 
     };
