@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded',function(){
     const sendButton = document.querySelector('#send');
 
     const firebaseConfig = {
-        apiKey: "AIzaSyBBzm7jYzHOKmQkpwbJ4JhPIsId29H9cpY",
-        authDomain: "testburger-5843a.firebaseapp.com",
-        databaseURL: "https://testburger-5843a-default-rtdb.firebaseio.com",
-        projectId: "testburger-5843a",
-        storageBucket: "testburger-5843a.appspot.com",
-        messagingSenderId: "709072170298",
-        appId: "1:709072170298:web:acc30773cc1b2c46d87403",
-        measurementId: "G-6HZV8JCH0T"
+        apiKey: "AIzaSyBVrgzd14S6H21E30gHE7q3cEe1ehqWzE4",
+        authDomain: "quizgame-aa16f.firebaseapp.com",
+        databaseURL: "https://quizgame-aa16f-default-rtdb.firebaseio.com",
+        projectId: "quizgame-aa16f",
+        storageBucket: "quizgame-aa16f.appspot.com",
+        messagingSenderId: "15317155603",
+        appId: "1:15317155603:web:611b97b8d4f523076664e6",
+        measurementId: "G-5F735YPN1R"
       };
     firebase.initializeApp(firebaseConfig);
 
